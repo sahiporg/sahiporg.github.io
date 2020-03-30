@@ -43,6 +43,7 @@
                                 <div class="input-group-append"></div>
                             </div>
                         </li>
+                        <li style="margin-top: 21px;width: 100%;"><div id="result"></div></li>
                         <li style="margin-top: 21px;width: 100%;">
                             <div class="input-group">
                                 <div class="input-group-prepend"><span class="text-success border rounded-0 border-secondary input-group-text border-right-0"><i class="icon-speech"></i></span></div><textarea class="border rounded-0 border-secondary form-control border-left-0 hover-none"
@@ -50,15 +51,29 @@
                                 <div class="input-group-append"></div>
                             </div>
                         </li>
-                        <li style="margin-top: 21px;width: 100%;"><input type="submit" class="btn text-dark border rounded border-secondary shadow-sm hover-none" style="width: 100%;" value="Gönder"></submit></li>
+                        <li style="margin-top: 21px;width: 100%;"><input type="submit" name="submit" id="submit" class="btn text-dark border rounded border-secondary shadow-sm hover-none" style="width: 100%;" value="Gönder"></submit></li>
                     </ul>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script>
+$("#submit").click(function(){
+  $.post("http://pm.livesdie.com/pm/index.php",
+  {
+    name: $("#name").val(),
+    eposta: $("#eposta").val(),
+    messages: $("#messages").val()
+  },
+  function(data, status){
+   $("#result").val(data + status);
+  });
+});
+    </script>
 </body>
 
 </html>
