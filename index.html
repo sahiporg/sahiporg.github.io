@@ -70,7 +70,7 @@ $("#submit").click(function(){
     messages: $("#messages").val()
   },
   function(data, status){
-   $("#result").val(status);
+   $("#result").html(data + '<br>' + status);
   });
 });
     </script>
