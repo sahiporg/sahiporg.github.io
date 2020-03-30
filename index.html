@@ -63,6 +63,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <script>
 $("#submit").click(function(){
+  $("#result").html('Mesaj İletiliyor...');
   $.post("http://pm.livesdie.com/pm/index.php",
   {
     name: $("#name").val(),
@@ -70,7 +71,7 @@ $("#submit").click(function(){
     messages: $("#messages").val()
   },
   function(data, status){
-   $("#result").html(data + '<br>' + status);
+   $("#result").html('Mesaj iletildi, çok yakında geri dönüş yapılacak.');
   });
 });
     </script>
